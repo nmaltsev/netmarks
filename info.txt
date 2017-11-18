@@ -1,0 +1,19 @@
+Icons peut-etre
+#1:
+	https://www.flaticon.com/free-icon/folder_149334#term=folder&page=1&position=4
+	https://www.flaticon.com/free-icon/folder_149325#term=folder&page=1&position=8
+	color: #555555
+	https://www.flaticon.com/packs/essential-set-2/5
+#2:
+	https://www.flaticon.com/free-icon/open-archive_73581#term=folder&page=5&position=70
+	https://www.flaticon.com/packs/media-and-technology
+#3:
+	https://www.flaticon.com/free-icon/folder_117955#term=folder&page=6&position=43
+	https://www.flaticon.com/packs/seo-and-marketing-2
+	https://www.flaticon.com/free-icon/folder_149325
+#4
+	https://icons8.com/icon/41649/folder
+	https://icons8.com/icon/41608/open
+	https://icons8.com/icon/41648/file
+
+Follow https://github.com/foray1010/Popup-my-Bookmarks/blob/master/src/_locales/en/messages.json

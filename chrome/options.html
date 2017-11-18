@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title data-i18n="set_title">Settings</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="css/option-page.css"/>
+	</head>
+	<body id="option-page">
+		<div class="op_layout-column clearfix">
+			<h1 class="op_header1" data-i18n="set_title"></h1>	
+
+			<div class="op_layout-grid">
+				<div class="op_layout-grid-cell">
+					<div class="op_section" data-co="size-range">
+						<h3 class="op_header2" data-i18n="set_windowSize"></h3>
+						<div class="op_range-row"><span data-i18n="set_width"></span><span class="op_offset1">:</span><span data-size="px" class="op_offset1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input class="op_range-input" type="range" min="280" max="600" data-co="width-input"/></div> <!-- 280..640-->
+						<div class="op_range-row"><span data-i18n="set_height"></span><span class="op_offset1">:</span><span data-size="px" class="op_offset1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input class="op_range-input" type="range" min="280" max="600" data-co="height-input"/></div> <!-- 280..532-->
+					</div>
+					<div class="op_section">
+						<h3 class="op_header2" data-i18n="set_appearanceSettings"></h3>
+						<div data-co="font-size-radio" class="op_sub-section">
+							<label class="op_mini-section">
+								<span class="op_label-block_label inline-middle" data-i18n="set_fontSize"></span>
+								<select class="op_fontsize-select inline-middle" data-co="font-size">
+									<option value="11">11 px</option>
+									<option value="12">12 px</option>
+									<option value="13">13 px</option>
+									<option value="14">14 px</option>
+								</select>
+							</label>
+							<label class="op_mini-section">
+								<span class="op_label-block_label inline-middle" data-i18n="set_fontColor"></span>
+								<input type="color" data-co="font-color"/>
+							</label>
+							<label class="op_mini-section">
+								<span class="op_label-block_label inline-middle" data-i18n="set_counterColor"></span>
+								<input type="color" data-co="counter-color"/>
+							</label>
+						</div>
+						<div>
+							<label class="op_label-block"><input type="checkbox" data-co="word-wrapping" class="op_label-block_input"/><span class="op_label-block_label" data-i18n="set_trimTitleOfTab"></span></label>
+							<label class="op_label-block"><input type="checkbox" data-co="folder-tittle-uppercase" class="op_label-block_input"/><span class="op_label-block_label" data-i18n="set_capitalizeFolderName"></span></label>
+						</div>
+					</div>
+					<div class="">
+						<h3 class="op_header2" data-i18n="set_behaviorSettings"></h3>
+						<div data-co="click-action-radio" class="op_sub-section">
+							<label class="op_label-block"><input type="radio" name="click-action" value="new" class="op_label-block_input"><span class="op_label-block_label" data-i18n="set_openBookmarkAtNewTab"></span></label>
+							<label class="op_label-block"><input type="radio" name="click-action" value="current" class="op_label-block_input"><span class="op_label-block_label" data-i18n="set_openBookmarkAtCurrentTab"></span></label>
+						</div>
+						<div class="op_sub-section">
+							<label class="op_label-block"><input type="checkbox" class="op_label-block_input" data-co="activate-tab"><span class="op_label-block_label" data-i18n="set_activateOpenedBookmark"></span></label>
+						</div>
+						<div data-co="hide-action-radio" class="op_sub-section">
+							<label class="op_label-block"><input type="radio" name="hide-action" value="close" class="op_label-block_input"><span class="op_label-block_label" data-i18n="set_hideOpenedBookmarks"></span></label>
+							<label class="op_label-block"><input type="radio" name="hide-action" value="notclose" class="op_label-block_input"><span class="op_label-block_label" data-i18n="set_stayVisibleOpenedBookmarks"></span></label>
+						</div>
+					</div>	
+					
+				</div>
+
+				<div class="op_layout-grid-cell">
+					<div class="op_section">
+						<h3 class="op_header2" data-i18n="set_donationsTitle"></h3>
+
+						<div class="op_sub-section">
+							<p class="op_text3" data-i18n="set_ask_review"></p>
+							<div>
+								<iframe class="op_gh-frame" src="https://buttons.github.io/buttons.html#href=https://github.com/nmalcev/netmarks&data-show-count=true&data-text=Vote for Netmarks"></iframe>
+							</div>	
+							<p class="" data-i18n="set_donations"></p>
+							<ul class="op_unordered-list">
+								<li><a href="https://money.yandex.ru/to/410011437685152" target="_blank" class="op_link">Yandex money</a></li>
+								<li><a href="https://www.paypal.me/nmalcev" target="_blank" class="op_link">PayPal</a></li>
+							</ul>
+							<p data-i18n="set_gratitude_for_support"></p>
+						</div>
+					</div>
+					<div class="op_yandex-form-wrap" style="display: none;">
+						<iframe 
+							class="op_yandex-form"
+							src="https://money.yandex.ru/quickpay/shop-widget?writer=buyer&targets=&targets-hint=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D1%8E%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0&default-sum=&button-text=14&payment-type-choice=on&comment=on&hint=&successURL=&quickpay=shop&account=410011437685152" 
+							width="550" 
+							height="290" 
+							frameborder="0" 
+							allowtransparency="true" 
+							scrolling="no"></iframe>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="lib/$4_clean.js"></script>
+		<script src="/lib/backside.js"></script>
+		<script src="/js/option-page.js"></script>
+	</body>
+</html>

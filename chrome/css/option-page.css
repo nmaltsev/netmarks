@@ -1,0 +1,166 @@
+body{
+	margin: 0;
+	font: 13px/15px Arial;
+	color: #333;
+	/*background: url(../img/back2.jpg);*/
+}
+body,
+html{
+	height: 100%;
+}
+/* GLOBAL */
+.clearfix:before,.clearfix:after{content: "";display: table;}
+.clearfix:after{clear:both;}
+.inline-middle{display: inline-block;vertical-align: middle;}
+
+
+.op_layout-column{
+	width: 960px;
+	/*width: 580px;*/
+	margin: 0 auto;
+	background: url(../img/netmarks48.png) 28px 68px no-repeat;
+	min-height: 100%;
+	padding: 0 0 0 100px;
+}
+
+
+.op_layout-grid{
+	display: table;
+	width: 1024px;
+}
+.op_layout-grid-cell{
+	display: table-cell;
+	vertical-align: top;
+	width: 50%;
+	box-sizing: border-box;
+	padding: 16px 32px;
+	border-left: 1px solid #dfdfdf;
+}
+.op_layout-grid-cell:first-child{
+	padding-left: 0;
+	border-left: none;
+}
+
+
+.op_header1{
+	margin: 80px 0 40px 0;
+	font-size: 24px;
+	line-height: 24px;
+	text-transform: uppercase;
+}
+.op_header2{
+	margin: 0 0 12px 0;
+	font-size: 14px;
+	line-height: 18px;
+	text-transform: uppercase;
+}
+.op_header3{
+	margin: 0 0 8px 0;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.op_text3{
+	font-size: 13px;
+	line-height: 18px;
+}
+
+
+
+
+.op_section{
+	margin: 0 0 48px 0;
+}
+.op_big-section{
+	margin: 0 0 64px 0;
+}
+.op_sub-section{
+	margin: 0 0 12px 0;
+}
+.op_mini-section{
+	display: block;
+	margin: 0 0 4px 0;	
+}
+
+.op_label-block{
+ 	display: block;
+ 	cursor: pointer;
+ 	margin: 0 0 4px 0;
+}
+.op_label-block_input{
+ 	display: inline-block;
+ 	vertical-align: middle;
+ 	margin: 0 8px 0 0;
+}
+.op_label-block_label,
+.op_label-block_text{
+	display: inline-block;
+ 	vertical-align: middle;
+}
+.op_label-block_text{
+	margin: 0 0 0 4px;
+}
+.op_range-input{
+	margin: 0;
+	outline: none;
+}
+
+.op_range-row{
+	margin: 0 0 4px 0;
+}
+.op_range-row:after{
+	content: "";
+	height: 100%;
+}
+.op_range-row > *,
+.op_range-row:after{
+	display: inline-block;
+	vertical-align: middle;
+}
+.op_offset1{
+	margin: 0 8px 0 0;
+}
+
+.op_unordered-list{
+	margin: 0 0 0 20px;
+	padding: 0;
+}
+.op_unordered-list > li{
+	margin: 0 0 8px 0;
+}
+
+.op_link{
+	color: #1459dd;
+}
+.op_fontsize-select{
+	/*-webkit-appearance: none;
+	appearance: none;*/
+	outline: none;
+
+}
+
+input[type=color]{
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-appearance: none;
+	appearance: none;
+	border: none;
+    outline: none;
+    height: 18px;
+    padding: 0;
+}
+
+.op_gh-frame{
+	border: none;
+	height: 20px;
+}
+.op_yandex-form-wrap{
+	position: relative;
+	width: 100%;
+	height: 290px;
+}
+.op_yandex-form{
+	position: absolute;
+	left: 0;
+	top: 0;
+}

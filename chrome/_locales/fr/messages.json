@@ -1,0 +1,202 @@
+{
+	"extDescription": {
+		"message": "Gestionnaire de favoris avec une interface propre et intuitive", 
+		"description": ""
+	},
+	"extName": {
+		"message": "NetMarks",
+		"description": ""
+	},
+	"Search": {
+		"message": "Rechercher",
+		"description": "Search"
+	},
+	"openAtCurrentTab": {
+		"message": "Ouvrir en la page courant",
+		"description": "Open at current tab"
+	},
+	"openAtNewTab": {
+		"message": "Ouvrir en la page nouvelle",
+		"description": "Open at new tab"
+	},
+	"openAtNewWindow": {
+		"message": "Ouvrir en la fenêtre nouvelle",
+		"message": "Open at new window"
+	},
+	"openAtIncognito": {
+		"message": "Navigation privée",
+		"description": "Open at incognito window"
+	},
+	"copyLinkUrl": {
+		"message": "Copier le lien",
+		"description": "Copy link url"
+	},
+	"remove": {
+		"message": "Supprimer",
+		"description": "Remove"
+	},
+	"edit": {
+		"message": "Éditer",
+		"description": "Edit"
+	},
+	"openAllBookmarks": {
+		"message": "Ouvrir tous les favoris",
+		"description": "Open All bookmarks"
+	},
+	"renameBookmark": {
+		"message": "Renommer le favori",
+		"description": "Rename bookmark"
+	},
+	"addCurrentTab": {
+		"message": "Ajouter a la page courante",
+		"description": "Add current tab"
+	},
+	"createSubsection": {
+		"message": "Ajouter dossier",
+		"description": "Create subsection"
+	},
+	"openAllSelected": {
+		"message": "Ouvrir tous sélectionnés",
+		"message": "Open all selected"
+	},
+	"removeAllSelected": {
+		"message": "Supprimer tous sélectionnés",
+		"description": "Remove all selected"
+	},
+	"deselectAll": {
+		"message": "désélectionner tous",
+		"description": "Deselect all"
+	},
+	"title": {
+		"message": "Le titre",
+		"description": "Title"
+	},
+	"link": {
+		"message": "Le lien",
+		"description": "Link"
+	},
+	"update": {
+		"message": "Mettre à jour",
+		"description": "Update"
+	},
+	"removeDir_ok": {
+		"message": "D'accord",
+		"description": "Ok"
+	},
+	"removeDir_removeQuestion": {
+		"message": "Vous êtes sur le point de supprimer dossier &laquo;{1}&raquo;. Êtes-vous sûr de vouloir continuer ?",
+		"description": "You are about to remove folder &laquo;{1}&raquo;. Are you sure you want to continue?"
+	},
+	"removeDir_wouldBeRemoved": {
+		"message": "Il serait supprimé ",
+		"description": "There would be removed "
+	},
+	"removeDir_totalLinks": {
+		"message": "{<}{count}{>} {entity} ",
+		"description": "{<}{count}{>} {entity} "
+	},
+	"removeDir_and": {
+		"message": "et ",
+		"description": "and "
+	},
+	"removeDir_totalBookmarks": {
+		"message": "{<}{count}{>} {entity}",
+		"description": "{<}{count}{>} {entity}"
+	}, 
+	"removeDir_linkForms": {
+		"message": "favori|favoris|favoris",
+		"description": "bookmark|bookmarks|bookmarks"
+	},
+	"removeDir_bookmarkForms": {
+		"message": "dossier|dossiers|dossier",
+		"description": "directory|directories|directories"
+	}, 
+	"newDir": {
+		"message": "Nouvelle dossier",
+		"description": "New folder"
+	},
+	"set_title": {
+		"message": "Paramètres",
+		"description": "NetMarks settings"
+	},
+	"set_windowSize": {
+		"message": "Fenêtre tailles",
+		"description": "Window size"
+	},
+	"set_width": {
+		"message": "La largeur",
+		"description": "Width"
+	},
+	"set_height": {
+		"message": "Le altitude",
+		"description": "Height"
+	},
+	"set_appearanceSettings": {
+		"message": "Préférences de l'interface",
+		"description": "Interface settings"
+	},
+	"set_fontSize": {
+		"message": "Taille police",
+		"description": "Font size"
+	},
+	"set_trimTitleOfTab": {
+		"message": "Couper titre de favori",
+		"description": "Trim title of tabs"
+	},
+	"set_capitalizeFolderName": {
+		"message": "Titre de la page à afficher en majuscules",
+		"description": "The folder name in capital letters"
+	},
+	"set_behaviorSettings": {
+		"message": "Préférences a fonctions",
+		"description": "Behavior settings"
+	},
+	"set_openBookmarkAtNewTab": {
+		"message": "Ouvrir le favori dans la page nouvelle avec clic",
+		"description": "Open a bookmark in a new tab by click"
+	},
+	"set_openBookmarkAtCurrentTab": {
+		"message": "Ouvrir le favori dans la page courante avec clic",
+		"description": "Open a bookmark at current tab by click"
+	},
+	
+
+	"set_ask_review": {
+		"message": "Netmarks est et sera toujours gratuit. Si vous avez un moment de répit, soutenez-le en laissant un commentaire et en faisant savoir à tous les autres que c'est un outil formidable et utile.",
+		"description": "Netmarks is and always will be free. If you have a spare moment please support it by leaving a review and letting everyone else know what a great and useful tool it is."
+	},
+	"set_donations": {
+		"message": "J'accepte les dons si vous pensez que cela en vaut la peine:",
+		"description": "I accept donations if you think it worth it:"
+	},
+
+
+	"set_donationsTitle": {
+		"message": "Donations",
+		"description": "Donations"
+	},
+	"set_hideOpenedBookmarks": {
+		"message": "Mode avec un seul dossier ouvert",
+		"description": "Mode with single opened folder"
+	},
+	"set_stayVisibleOpenedBookmarks": {
+		"message": "Mode avec plusieurs dossiers ouverts",
+		"description": "Mode with multiple opened folder"
+	},
+	"set_activateOpenedBookmark": {
+		"message": "Faut actif l'onglet après ouvrir le page",
+		"description": "Activate tab after opening page"
+	},
+	"set_fontColor": {
+		"message": "Couleur des caractères",
+		"description": "Font color"
+	},
+	"set_counterColor": {
+		"message": "Couleur de compteur",
+		"description": "Counter color"
+	},
+	"set_gratitude_for_support": {
+		"message": "Merci pour votre soutien!",
+		"description": "Thank you for your support!"
+	}
+}
