@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "NetMarks - Bookmarks menu",
 	"short_name": "NetMarks",
-	"version": "2.1.250",
+	"version": "2.1.253",
 	"default_locale": "en",
 	"description": "__MSG_extDescription__",
 

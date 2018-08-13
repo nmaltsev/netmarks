@@ -1,4 +1,4 @@
-/* Backside  v19 2017/10/01 (based on v18 2017/05/26, v18 2017/07/21 2016/12/19, 2016/08/15) */
+/* Backside  v20 2018/02/15 */
 ;(function(_env){
 // Need polifils for NodeElement:remove ($4.removeNode(this.el);)
 //==================================
@@ -148,7 +148,6 @@
 	};
 	Model.prototype.get = function(key, _default){
 		return this.attr.hasOwnProperty(key) ? this.attr[key] : _default;
-		// return this.attr[key] || _default;
 	};
 	Model.prototype.has = function(key){
 		return this.attr.hasOwnProperty(key);

@@ -104,7 +104,12 @@ class RootFolder extends Backside.View{
 			}else{
 				this.controls.closeBtn.style.display = 'none';
 			}
-			this.model.filter(query);
+
+			console.log('Query `%s`', query);
+
+			if (query.length > 2) {
+				this.model.filter(query);	
+			}
 		}.bind(this), 300);
 
 		this._prebindEvents({
@@ -146,7 +151,7 @@ class RootFolder extends Backside.View{
 	// @param {Bool} hideNotRelevant
 	filter(ids, hideNotRelevant){
 		for(var view of this.children){
-			if(!view._inited) view.postInitialize();
+			view.postInitialize();
 			view.filter(ids, hideNotRelevant);
 		}
 	}
@@ -250,6 +255,9 @@ class RootFolder extends Backside.View{
 				}, {	
 					label: PlatformApi._('addCurrentTab'),
 					action: function(view){
+
+						// Here bug
+
 						PlatformApi.getActiveTabUrl(function(tabObj){
 							PlatformApi.createBookmark(tabObj, view.model.get('id'), function(model){
 								var newLink = view.createChildBookmark(model);
@@ -260,12 +268,18 @@ class RootFolder extends Backside.View{
 				}, {	
 					label: PlatformApi._('createSubsection'),
 					action: function(view){
-						PlatformApi.createSubFolder(PlatformApi._('newDir'), view.model.get('id'), function(model){
+						// TODO 
+
+						PlatformApi.createSubFolder(PlatformApi._('newDir'), view.model.get('id'), function(model) {
 							model.set('isOpened', true);
-							var newDir = view.createChildBookmark(model);
-							newDir.postInitialize();
-							newDir.root.registerOpened(newDir);
-							newDir._show();
+							var newDir_View = view.createChildBookmark(model);
+							newDir_View.postInitialize();
+							newDir_View.root.registerOpened(newDir_View);
+							newDir_View._show();
+
+							var editDialog = createEditDialog(newDir_View, null, true);
+							
+							_this.el.appendChild(editDialog.el);
 						});
 					}
 				}]);
@@ -733,7 +747,7 @@ BookFolderView.prototype.filter = function(ids, hideNotRelevant){
 			if(
 				(childStatus = ids.includes(view.model.get('id'))) //|| folderIsRelevant
 			){ 
-				if(!view._inited) view.postInitialize();
+				view.postInitialize();
 				status = true; 
 				view.el.style.display = '';
 			}else{
@@ -742,7 +756,7 @@ BookFolderView.prototype.filter = function(ids, hideNotRelevant){
 		}
 
 		if(folderIsRelevant){
-			if(!view._inited) view.postInitialize();
+			view.postInitialize();
 			view.el.style.display = '';	
 		}
 	}
@@ -754,7 +768,7 @@ BookFolderView.prototype.filter = function(ids, hideNotRelevant){
 	this.model.set('isOpened', status);
 
 	if(status){
-		if(!this._inited) this.postInitialize();
+		this.postInitialize();
 		this.el.style.display = '';
 		this._show();
 	}else{
@@ -789,9 +803,7 @@ BookFolderView.prototype.toggle = function(isShow){
 
 	if(isShow){
 		for(var view of this.children){
-			if(!view._inited){
-				view.postInitialize();
-			}
+			view.postInitialize();
 
 			if(this.root.model.get('mode') == 'filter'){
 				view.el.style.display = '';
@@ -878,6 +890,7 @@ BookFolderView.prototype.attachChild = function(view){
 };
 // APPROVED
 // Create view from model and append at bookmark list
+// @areturn {BookFolderView | BookLinkView}
 BookFolderView.prototype.createChildBookmark = function(model){
 	var 	view = new (model.isFolder() ? BookFolderView : BookLinkView)({
 				model: model
@@ -925,6 +938,7 @@ BookLinkView.prototype.initialize = function(config){
 	this.model = config.model;
 };
 BookLinkView.prototype.postInitialize = function(){
+	if (this._inited) return;
 	this._inited = true;
 
 	this.el.setAttribute('title', this.model.get('url'));
@@ -1042,6 +1056,7 @@ BookLinkView.prototype.postInitialize = function(){
 		_helpers.toggleClass(this.el, '__grouped', newValue);
 	});
 	this.listen('change:title', function(newValue){
+		console.log('[change:title] `%s`', newValue);
 		this.controls.title.textContent = newValue || 'noname';
 	});
 	this.listen('change:url', function(newValue){
@@ -1200,7 +1215,8 @@ DialogPopup.prototype.template =
 
 // @param _bookmark - config.bookmark
 // @param _tree - config.tree
-function createEditDialog(view, oncomplete){
+// @param {Boolean} _onlyTitle - edit only title 
+function createEditDialog(view, oncomplete, _onlyTitle=false){
 	// Collection of event handlers
 	var handlers = {
 		'onkeydown title': function(e){
@@ -1214,7 +1230,9 @@ function createEditDialog(view, oncomplete){
 			this.options.submit(this);
 		},
 		'onchange folder': function(e){	
-			this.controls.submit.classList.remove('__disabled');
+			if (!_onlyTitle) {
+				this.controls.submit.classList.remove('__disabled');	
+			}
 		},
 		'oninput title': function(e){
 			_helpers.toggleClass(this.controls.submit, '__disabled', e.target.value == this.options.target.model.get('title'));
@@ -1244,7 +1262,10 @@ function createEditDialog(view, oncomplete){
 					if(saveURL) _bookmark.model.change('url', saveURL);
 				});	
 
-				if(pid != _bookmark.model.get('parentId')){
+				if(
+					!_onlyTitle && 
+					pid != _bookmark.model.get('parentId')
+				){
 					PlatformApi.moveBookmark(bid, pid, function(updMark){
 						let 	parent = view._folders[pid];
 
@@ -1266,7 +1287,8 @@ function createEditDialog(view, oncomplete){
 				'<textarea data-co="title" class="nm_bookmark-edit-dialog_textarea"></textarea>' +
 				'<div class="nm_bookmark-edit-dialog_title" data-co="url-title" style="display:none;">' + PlatformApi._('link') + '</div>' +
 				'<textarea data-co="url" class="nm_bookmark-edit-dialog_textarea" style="display:none;"></textarea>' +
-				'<select data-co="folder" class="nm_bookmark-edit-dialog_select-folder"></select>' +
+				'<select data-co="folder" class="nm_bookmark-edit-dialog_select-folder" style="display:none;"></select>' +
+				// By default, folder control is hidden while _onlyTitle is false
 				'<button data-co="submit" class="nm_btn nm_submit-btn __disabled" type="submit">' + PlatformApi._('update') + '</button>' +
 			'</form>' +
 			'<div class="nm_middle-helper"></div>' +
@@ -1276,28 +1298,32 @@ function createEditDialog(view, oncomplete){
 			var 	bookmark = view.options.target,
 					_folders = {};
 
-			if(!bookmark.model.isFolder()){
-				view.controls.url.value = bookmark.model.get('url');
-				view.controls.urlTitle.style.display = '';
-				view.controls.url.style.display = '';
-			}
-			view._folders = {};
-
-			bookmark.root.walk(function(bookmark){
-				if(bookmark.model.isFolder()){
-					_folders[bookmark.model.get('id')] = (_folders[bookmark.model.get('parentId')] || '') + '/' + bookmark.model.get('title');
-					view._folders[bookmark.model.get('id')] = bookmark;
+			if (!_onlyTitle) {
+				if(!bookmark.model.isFolder()){
+					view.controls.url.value = bookmark.model.get('url');
+					view.controls.urlTitle.style.display = '';
+					view.controls.url.style.display = '';
 				}
-			});
+				view._folders = {};
 
-			view.controls.folder.appendChild(_helpers.crList(_folders, function(name, id){
-				var option = document.createElement('option');
+				bookmark.root.walk(function(bookmark){
+					if(bookmark.model.isFolder()){
+						_folders[bookmark.model.get('id')] = (_folders[bookmark.model.get('parentId')] || '') + '/' + bookmark.model.get('title');
+						view._folders[bookmark.model.get('id')] = bookmark;
+					}
+				});
 
-				option.value = id;
-				option.textContent = name;
-				return option;
-			}));
-			view.controls.folder.value = bookmark.model.get('parentId');
+				view.controls.folder.style.display = '';
+				view.controls.folder.appendChild(_helpers.crList(_folders, function(name, id){
+					var option = document.createElement('option');
+
+					option.value = id;
+					option.textContent = name;
+					return option;
+				}));
+				view.controls.folder.value = bookmark.model.get('parentId');
+			}
+
 			view.controls.title.value = bookmark.model.get('title');
 
 			setTimeout(function(){
